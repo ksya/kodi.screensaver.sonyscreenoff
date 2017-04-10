@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+   <setting label="30001" type="ipaddress" id="ipaddress" default="127.0.0.1"/>
+   <setting label="30002" type="number" id="code"/>
+   <setting label="30003" type="action" id="start_pair" action="RunScript(screensaver.sonyscreenoff, action=start_pair)"/>
+   <setting label="30004" type="action" id="test" action="RunScript(screensaver.sonyscreenoff, action=test)"/>
+</settings>

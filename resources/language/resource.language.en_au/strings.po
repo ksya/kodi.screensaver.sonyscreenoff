@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_AU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#30001"
+msgid "ipaddress"
+msgstr "IP address"
+
+msgctxt "#30002"
+msgid "code"
+msgstr "Pin code"
+
+msgctxt "#30003"
+msgid "code"
+msgstr "Start pairing"
+
+msgctxt "#30004"
+msgid "code"
+msgstr "Test"
