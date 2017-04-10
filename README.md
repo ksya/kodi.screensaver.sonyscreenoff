@@ -1,7 +1,7 @@
-# kodi.screensaver.sonyscreenoff
+# Kodi Sony Bravia TV display off screensaver
 Plugin for Kodi that will turn off the Sony Bravia TV screen as screensaver. Finally a real screensaver and power saver.
 
-**Installation**
+## Installation
 1. Download repository as zip file.
 2. Make a new folder named "screensaver.sonyscreenoff" in addons directory of Kodi
 ..* For Android: /sdcard/Android/data/org.xbmc.kodi/.kodi/addons/screensaver.sonyscreenoff/
@@ -18,6 +18,6 @@ Plugin for Kodi that will turn off the Sony Bravia TV screen as screensaver. Fin
 12. Enjoy!
 
 
-**Thanks**
-This plugin uses the fine library by 8none1:
+# Thanks
+This plugin uses the fine "bravialib" library by 8none1:
 https://github.com/8none1/bravialib
