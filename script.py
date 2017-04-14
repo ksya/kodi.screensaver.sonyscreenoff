@@ -3,6 +3,7 @@ import xbmc
 import xbmcgui
 import sys
 import xbmcaddon
+import addon
 from resources.lib.bravialib import Bravia
 
 
@@ -19,7 +20,7 @@ ip = __addon__.getSetting('ipaddress')
 
 
 
-notifytime = 3000 #in miliseconds
+addon.notifytime = 3000 #in miliseconds
 
 def __getArguments():
     data = None
@@ -39,11 +40,7 @@ def Main():
     tv.device_id = CLIENTID_PREFIX
     tv.nickname = NICKNAME
 
-    is_telly_on = tv.is_available()
-    if is_telly_on is False:
-        xbmc.log("Not able to connect to the TV.")
-        sys.exit(1)
-
+    addon.checkTvIsOn(tv)
 
     args = __getArguments()
     data = {}
@@ -54,11 +51,11 @@ def Main():
 
         response, state = tv.connect()
         if state is True:
-            notify("Already paired and connected to the TV.")
+            addon.notify("Already paired and connected to the TV.")
         else:
             tv.start_pair()
 
-            notify("Now fill in the code visible on the TV.")
+            addon.notify("Now fill in the code visible on the TV.")
 
             d = xbmcgui.Dialog().input(__addonname__, type=xbmcgui.INPUT_NUMERIC) 
             __addon__.setSetting('code', d)
@@ -71,30 +68,12 @@ def Main():
             else:
                 note = "Something went wrong in the pairing process."
 
-            notify(note)
+            addon.notify(note)
 
     elif args['action'] == 'test':
         xbmc.log("Test")
-
-        response, state = tv.connect()
-        if type(response) is not None:
-            try:
-                if response.status_code == 401:
-                    note = "Not paired yet!"
-                elif response.status_code == 200:
-                    note = "Paired!"
-                else:
-                    note = "Something went wrong here. Response code problem."
-            except:
-                note = "Something went wrong here. Exception."
-        else:
-            note = "Something went wrong here. Response type problem."
-
-        notify(note)
-
-
-def notify(note):
-    xbmc.executebuiltin('Notification(%s, %s, %d, %s)'%(__addonname__, note, notifytime, __icon__))
+        success, note = addon.checkConnection(tv)
+        addon.notify(note)
 
 
 if __name__ == '__main__':
